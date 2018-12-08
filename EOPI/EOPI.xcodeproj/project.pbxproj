@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06E5C60221B8D31800FCDE35 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C60121B8D31800FCDE35 /* main.c */; };
+		06E5C60A21B8D52600FCDE35 /* PrimtiveTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C60821B8D52600FCDE35 /* PrimtiveTypes.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		06E5C5FE21B8D31800FCDE35 /* EOPI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EOPI; sourceTree = BUILT_PRODUCTS_DIR; };
 		06E5C60121B8D31800FCDE35 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		06E5C60821B8D52600FCDE35 /* PrimtiveTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PrimtiveTypes.c; sourceTree = "<group>"; };
+		06E5C60921B8D52600FCDE35 /* PrimtiveTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrimtiveTypes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				06E5C60121B8D31800FCDE35 /* main.c */,
+				06E5C60821B8D52600FCDE35 /* PrimtiveTypes.c */,
+				06E5C60921B8D52600FCDE35 /* PrimtiveTypes.h */,
 			);
 			path = EOPI;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06E5C60221B8D31800FCDE35 /* main.c in Sources */,
+				06E5C60A21B8D52600FCDE35 /* PrimtiveTypes.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
