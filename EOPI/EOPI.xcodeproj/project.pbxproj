@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		062DA98021F4D56F00E06302 /* eop_array.c in Sources */ = {isa = PBXBuildFile; fileRef = 062DA97F21F4D56F00E06302 /* eop_array.c */; };
 		06E5C60221B8D31800FCDE35 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C60121B8D31800FCDE35 /* main.c */; };
 		06E5C60A21B8D52600FCDE35 /* PrimtiveTypes.c in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C60821B8D52600FCDE35 /* PrimtiveTypes.c */; };
 		06E5C60D21BDF97300FCDE35 /* IK.c in Sources */ = {isa = PBXBuildFile; fileRef = 06E5C60B21BDF97300FCDE35 /* IK.c */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		062DA97E21F4D56F00E06302 /* eop_array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = eop_array.h; sourceTree = "<group>"; };
+		062DA97F21F4D56F00E06302 /* eop_array.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = eop_array.c; sourceTree = "<group>"; };
 		06E5C5FE21B8D31800FCDE35 /* EOPI */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = EOPI; sourceTree = BUILT_PRODUCTS_DIR; };
 		06E5C60121B8D31800FCDE35 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		06E5C60821B8D52600FCDE35 /* PrimtiveTypes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PrimtiveTypes.c; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				06E5C60B21BDF97300FCDE35 /* IK.c */,
 				06E5C60C21BDF97300FCDE35 /* IK.h */,
 				06E5C60921B8D52600FCDE35 /* PrimtiveTypes.h */,
+				062DA97E21F4D56F00E06302 /* eop_array.h */,
+				062DA97F21F4D56F00E06302 /* eop_array.c */,
 			);
 			path = EOPI;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			files = (
 				06E5C60221B8D31800FCDE35 /* main.c in Sources */,
 				06E5C60A21B8D52600FCDE35 /* PrimtiveTypes.c in Sources */,
+				062DA98021F4D56F00E06302 /* eop_array.c in Sources */,
 				06E5C60D21BDF97300FCDE35 /* IK.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,6 +255,7 @@
 				06E5C60721B8D31800FCDE35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
