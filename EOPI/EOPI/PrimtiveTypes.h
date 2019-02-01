@@ -12,7 +12,7 @@
 #include <stdio.h>
 
 
-#define MIN (x, y)  ( ( (x) < (y) )? (x):(y) )
+
 
 char countBits(unsigned int x);
 int strToint( char *string , int len);

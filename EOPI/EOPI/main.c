@@ -23,8 +23,12 @@ int main(int argc, const char * argv[]) {
     ptr = multiply(str1,str2);
     printf("%s",ptr);
 */
-    int array[]={2,3,5,5,7,11,11,11,13};
-    deleteDuplicatesFromSortedArray(&array);
+    int val=0;
+   // int array[]={310,315,275,295,260,270,290,230,255};
+     int array[]={0,1,2,5,5,5,0,0,5};
+    //deleteDuplicatesFromSortedArray(&array);
+    //buyAndSellStock(&array);
+    val = longestSubarrayEqualOfEntries(&array);
 
    while(1);
     //dutchFlagProblem(data,9,6);

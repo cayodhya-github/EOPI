@@ -6,10 +6,16 @@
 //  Copyright © 2019 chakri. All rights reserved.
 //
 
+#include "PrimtiveTypes.h"
 #include "eop_array.h"
 #include "stdlib.h"
 #include <string.h>
 
+#define MIN(a,b) (((a)<(b))?(a):(b))
+//#define MAX ((x), (y))  ( ( (x) > (y) )? (x):(y) )
+
+//#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
 
 void swap(int *right, int *left)
 {
@@ -220,3 +226,48 @@ int deleteDuplicatesFromSortedArray(int (*sorted_array)[9])
     printf(" Count after removing Duplicated %d",write_index);
     return (write_index);
 }
+
+
+ int buyAndSellStock( int (*arrayPointer)[10])
+{
+     int max_profit_sell_today=0;
+     int min_so_far =(*arrayPointer)[0];     // first element should the min
+     int final_max_profit =0;
+    int i=0;
+    for(i=0;i < ((sizeof(*arrayPointer) ) / (sizeof(int)) );i++)
+    {
+        max_profit_sell_today =(((*arrayPointer)[i]) - min_so_far);
+        final_max_profit =MAX(max_profit_sell_today, final_max_profit);
+        min_so_far = MIN(min_so_far,((*arrayPointer)[i]));
+        
+    }
+    return ( final_max_profit);
+    
+}
+
+
+//variant , finds the length of the longest subarray all of whose entries re equal
+int longestSubarrayEqualOfEntries(int (*arrayPointer)[10])
+{
+    
+    int longest_so_far=0;
+    int start =(*arrayPointer)[0];     // first element should the min
+    int final_longest =0;
+    int i=0;
+    for(i=0;i < ((sizeof(*arrayPointer) ) / (sizeof(int)) );i++)
+    {
+        if( (((*arrayPointer)[i]) - start) == 0 )
+            longest_so_far++;
+        else
+        {
+            
+            final_longest =MAX(final_longest, longest_so_far);
+            longest_so_far=1;
+            start = ((*arrayPointer)[i]);
+            
+        }
+    }
+    return ( MAX(final_longest, longest_so_far));
+    
+}
+//{0,1,2,5,5,5,0,0,5};
