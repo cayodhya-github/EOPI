@@ -14,6 +14,7 @@
 void dutchFlagProblem(int *data,int size, int pivot_data);
 int* muliplicationofNumbers(int *nOne, int nOneSize, int *nTwo, int nTwoSize);
 char* multiply(char* num1, char* num2);
+int deleteDuplicatesFromSortedArray(int (*sorted_array)[9]);
 
 
 void sortColors(int* nums, int numsSize);

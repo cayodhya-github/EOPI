@@ -196,3 +196,27 @@ char* multiply(char* num1, char* num2) {
 }
 
 
+//Delete duplicate from Sorted Array.
+// this function will return the number is elements in new array and
+//original array will be modifed.
+
+
+/*
+ 1. How to create pointer to entire array
+ data_type (*var_name)[size_of_array];
+ */
+
+int deleteDuplicatesFromSortedArray(int (*sorted_array)[9])
+{
+    int write_index=1;
+    int i=1;
+    int size_of_array = (sizeof(*sorted_array) / sizeof(int) );
+    printf(" Count Before removing Duplicated %d",size_of_array);
+    for(i=1;i< size_of_array ;i++)
+    {
+        if( ((*sorted_array)[write_index-1]) !=  ((*sorted_array)[i]) )
+            ((*sorted_array)[write_index++]) =  ((*sorted_array)[i]);
+    }
+    printf(" Count after removing Duplicated %d",write_index);
+    return (write_index);
+}
