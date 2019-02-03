@@ -28,7 +28,9 @@ int main(int argc, const char * argv[]) {
      int array[]={0,1,2,5,5,5,0,0,5};
     //deleteDuplicatesFromSortedArray(&array);
     //buyAndSellStock(&array);
-    val = longestSubarrayEqualOfEntries(&array);
+    //val = longestSubarrayEqualOfEntries(&array);
+
+    pascalTriangle(10);
 
    while(1);
     //dutchFlagProblem(data,9,6);

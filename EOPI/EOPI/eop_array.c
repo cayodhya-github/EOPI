@@ -271,3 +271,28 @@ int longestSubarrayEqualOfEntries(int (*arrayPointer)[10])
     
 }
 //{0,1,2,5,5,5,0,0,5};
+void pascalTriangle(int num_of_rows)
+{
+    int i=0,j=0;
+    
+    int pascalTriagleTable[11][11];
+    
+    for(i=1;i<= num_of_rows;i++)
+    {
+        printf("\n");
+        for(j=0;j<i;j++)
+        {
+            if( (j==0) || (j == i-1 ) )
+            {
+                pascalTriagleTable[i][j] =1;
+                printf("1\t");
+            }
+            else
+            {
+                pascalTriagleTable[i][j]  = pascalTriagleTable[i-1][j-1] +pascalTriagleTable[i-1][j];
+                printf("%d\t", pascalTriagleTable[i][j]);
+            }
+        }
+    }
+    
+}
