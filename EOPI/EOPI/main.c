@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "PrimtiveTypes.h"
 #include "eop_array.h"
+#include "list.h"
 
 
 
@@ -25,12 +26,29 @@ int main(int argc, const char * argv[]) {
 */
     int val=0;
    // int array[]={310,315,275,295,260,270,290,230,255};
-     int array[]={0,1,2,5,5,5,0,0,5};
+  //   int array[]={0,1,2,5,5,5,0,0,5};
     //deleteDuplicatesFromSortedArray(&array);
     //buyAndSellStock(&array);
     //val = longestSubarrayEqualOfEntries(&array);
 
-    pascalTriangle(10);
+//    pascalTriangle(10);
+    struct ListNode *head1 = NULL;
+    struct ListNode *head2 = NULL;
+    
+    struct ListNode *head3 = NULL;
+
+    head1 = createList(10);
+    head2 = createList(6);
+
+  //  printList(head1);
+    reverseList(&head1);
+ //   reverseList(&head2);
+
+    printList(head1);
+    head1 = reverseBetween(head1, 2, 4);
+    printList(head1);
+    
+//    head3 = mergeToSortedLists(head1 ,head2);
 
    while(1);
     //dutchFlagProblem(data,9,6);
