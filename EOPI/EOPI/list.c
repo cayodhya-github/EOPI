@@ -95,34 +95,41 @@ struct ListNode * mergeToSortedLists(struct ListNode *l1, struct ListNode *l2)
 //92. Reverse Linked List II, we need to achieve the single pass
 //same problem we have in EOPI
 
-///NOT WORKING FULL NEEDS to debug.
+
 struct ListNode* reverseBetween(struct ListNode* head, int m, int n)
 {
-    struct ListNode dummy_head;
-    dummy_head.next = head;
-    struct ListNode* sublist_head = head;
+    struct ListNode* cur=head;
     struct ListNode* prev=NULL;
-    struct ListNode*  temp=NULL;
-    struct ListNode*  next=NULL;
-    int listCount =1;
-    while((listCount++ < m) && sublist_head )
-    {
-        sublist_head = sublist_head->next;
-    }
+    struct ListNode* start;
+    struct ListNode* tail;
+    struct ListNode* nextNode = NULL;
+    if(head == NULL)
+        return head;
     
-    prev =sublist_head->next;
-    temp = prev->next;
-//    temp =sublist_interator->next;
-    while ((m++ < n-1))
+    while(m > 1)
     {
-        next = temp->next;
-        temp->next = prev;
-        prev=temp;
-        temp=next;
+        prev = cur;
+        cur= cur->next;
+        m--;
+        n--;
     }
-    temp =sublist_head->next;
-    sublist_head->next = prev;
-    temp->next = next;
-    return (dummy_head.next);
+    start= prev;
+    tail = cur;
+    while(n > 0)
+    {
+        nextNode = cur->next;
+        cur->next = prev;
+        prev=cur;
+        cur = nextNode;
+        n--;
+    }
+    if(start!= NULL)
+        start->next = prev;
+    else
+        head = prev;
+    
+    tail->next = cur;
+    return head;
+    
 }
 
