@@ -52,8 +52,8 @@ struct ListNode *createList(int num_of_elements)
 
 void reverseList(struct ListNode **head)
 {
-    struct ListNode * temp = *head;
-    struct ListNode * prev = NULL;
+    struct ListNode *temp = *head;
+    struct ListNode *prev = NULL;
     struct ListNode *next;
     while(temp)
     {
@@ -66,6 +66,22 @@ void reverseList(struct ListNode **head)
     
 }
 
+
+struct ListNode* reverseListLeetCode(struct ListNode* head) {
+    
+    struct ListNode * temp = head;
+    struct ListNode * prev = NULL;
+    struct ListNode *next;
+    while(temp)
+    {
+        next = temp->next;
+        temp->next = prev;
+        prev=temp;
+        temp=next;
+    }
+    return( prev);
+    
+}
 
 
 void appendNode(struct ListNode **node , struct ListNode **tail)
@@ -133,3 +149,67 @@ struct ListNode* reverseBetween(struct ListNode* head, int m, int n)
     
 }
 
+//876. Middle of the Linked List
+
+struct ListNode* middleNode(struct ListNode* head) {
+    
+    struct ListNode *fast=head,*slow = head;
+    
+    while(fast!= NULL && fast->next != NULL )
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    if(fast!=NULL && fast->next)
+        return (slow->next);
+    else
+        return (slow);
+    
+}
+
+
+//237. Delete Node in a Linked List
+
+void deleteNode(struct ListNode* node) {
+    struct ListNode* temp = node->next;
+    node->val = temp->val;
+    node->next = temp->next;
+    temp->next = NULL;
+    free(temp);
+}
+//83. Remove Duplicates from Sorted List
+struct ListNode* deleteDuplicates(struct ListNode* head) {
+    struct ListNode* current = head;
+    struct ListNode* next;
+    struct ListNode* temp;
+    while(current!= NULL)
+    {
+        next = current->next;
+        if( (next!= NULL) &&  ( current->val == next->val) )
+        {
+            temp = next;
+            current->next = next->next;
+            free(temp);
+        }
+        else
+            current= current->next;
+        
+    }
+    return (head);
+}
+//141. Linked List Cycle
+
+
+int  hasCycle(struct ListNode *head) {
+    struct ListNode *fast=head,*slow = head;
+    
+    while(fast!= NULL && fast->next != NULL )
+    {
+        fast = fast->next->next;
+        slow = slow->next;
+        if(slow == fast)
+            return 1;
+    }
+    return 0;
+    
+}
