@@ -213,3 +213,142 @@ int  hasCycle(struct ListNode *head) {
     return 0;
     
 }
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* removeElements(struct ListNode* head, int val) {
+    
+    struct ListNode dummy_node;
+    struct ListNode* runner = &dummy_node;
+    struct ListNode* temp;
+    dummy_node.next = head;
+    while(runner!=NULL && runner->next!= NULL)
+    {
+        if(runner->next->val == val)
+        {
+            
+            temp = runner->next;
+            runner->next = temp->next;
+        }
+        else
+            runner = runner->next;
+    }
+    return dummy_node.next;
+    
+}
+
+int  isPalindrome(struct ListNode* head) {
+    
+    struct ListNode*middle;
+    struct ListNode*temp;
+    if(head!=NULL)
+    {
+        struct ListNode *fast=head,*slow = head;
+        
+        while(fast!= NULL && fast->next != NULL )
+        {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        temp = reverseListLeetCode(slow);
+        while(head && temp)
+        {
+            if(head->val != temp->val)
+                return 0;
+            
+            head = head->next;
+            temp= temp->next;
+        }
+    }
+    return 1;
+    
+}
+
+//369. Plus One Linked List
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+void addone(struct ListNode* head,struct ListNode* prev)
+{
+    if(!head)
+    {
+        prev->val+=1;
+        return;
+    }
+    addone(head->next,head);
+    if(head->val == 10)
+    {
+        head->val =0;
+        prev->val+=1;
+    }
+    
+}
+struct ListNode* plusOne(struct ListNode* head)
+{
+    struct ListNode* node = malloc(sizeof(struct ListNode));
+    node->next = head;
+    node->val =0;
+    if(head == NULL)
+        return head;
+    addone(head,node);
+    if(node->val ==1)
+        return node;
+    else
+        return node->next;
+    
+    
+}
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+//817. Linked List Components
+
+int isNumberExits(int* G, int GSize,int number)
+{
+    
+    while(GSize >= 0)
+    {
+        if(G[GSize--] == number)
+            return 1;
+        
+    }
+    
+    return 0;
+}
+
+int numComponents(struct ListNode* head, int* G, int GSize) {
+    
+    int count=0;
+    while(head )
+    {
+        if(isNumberExits(G,GSize-1,head->val))
+        {
+            count++;
+            
+            while( (head->next)  &&  (isNumberExits(G,GSize-1,(head->next->val))))
+            {
+                head = head->next;
+            }
+        }
+        head = head->next;
+    }
+    return count;
+}
