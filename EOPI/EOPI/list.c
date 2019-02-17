@@ -352,3 +352,236 @@ int numComponents(struct ListNode* head, int* G, int GSize) {
     }
     return count;
 }
+
+//445. Add Two Numbers II
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+
+int listLength(struct ListNode* head)
+{
+    int len=0;
+    
+    while(head)
+    {
+        len++;
+        head = head->next;
+    }
+    
+    return (len);
+}
+
+
+struct ListNode * addNodeToList(int data)
+{
+    struct ListNode *node = malloc(sizeof(struct ListNode ));
+    if(node== NULL)
+        return NULL;
+    node->val = data;
+    node->next = NULL;
+    
+    return node;
+    
+}
+
+struct ListNode *createList(int num_of_elements)
+{
+    
+    struct ListNode *runner=NULL, *temp=NULL;
+    
+    while(num_of_elements)
+    {
+        if(runner == NULL) {
+            runner =addNodeToList(0);
+            temp = runner;
+        }
+        else {
+            runner->next =addNodeToList(0);
+            runner = runner->next;
+        }
+        num_of_elements--;
+    }
+    return temp;
+}
+
+struct ListNode* addTwoNumbersHelper(struct ListNode* l1, struct ListNode* l2, int *c)
+{
+    int sum;
+    struct ListNode* head;
+    struct ListNode*temp;
+    if(l1 == NULL && l2==NULL )
+        return 0;
+    
+    head = addTwoNumbersHelper(l1->next, l2->next,c);
+    
+    sum = *c+l1->val+l2->val;
+    *c = sum / 10;
+    
+    temp = addNodeToList((sum % 10));
+    temp->next = head;
+    head = temp;
+    
+    return head;
+    
+}
+
+
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
+    
+    int len1=0, len2=0, diff=0;
+    struct ListNode* temp=NULL;
+    struct ListNode* l3= NULL;
+    struct ListNode* t1 = NULL;
+    
+    len1 = listLength(l1);
+    len2 =listLength(l2);
+    
+    if((len1>len2))
+    {
+        diff = (len1 - len2);
+        temp = createList(diff);
+        t1 = temp;
+        while(temp && temp->next )
+            temp = temp->next;
+        
+        temp->next = l2;
+        l2 = t1;
+        
+    }
+    else if(len1 < len2)
+    {
+        diff = (len2-len1);
+        temp = createList(diff);
+        t1 = temp;
+        while(temp && temp->next )
+            temp = temp->next;
+        
+        temp->next = l1;
+        l1 = t1;
+        
+    }
+    else
+    {}
+    
+    diff =  0;
+    l3 = addTwoNumbersHelper(l1,l2,&diff);
+    if(diff)
+    {
+        temp = addNodeToList(diff);
+        temp->next = l3;
+        return (temp);
+    }
+    else
+        
+        return ( l3);
+    
+}
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* oddEvenList(struct ListNode* head) {
+    struct ListNode* Optr;
+    struct ListNode* Eptr;
+    struct ListNode dummy_Onode,dummy_Enode;
+    int i=1;
+    struct ListNode* cur=head;
+    
+    Optr = &dummy_Onode;
+    Eptr = &dummy_Enode;
+    while(cur)
+    {
+        if(i % 2 == 0)
+        {
+            Eptr->next = cur;
+            Eptr= Eptr->next;
+        }
+        else {
+            Optr->next = cur;
+            Optr = Optr->next;
+        }
+        cur = cur->next;
+        i++;
+    }
+    Eptr->next = NULL;
+    Optr->next = dummy_Enode.next;
+    
+    return (dummy_Onode.next);
+    
+}
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* swapPairs(struct ListNode* head) {
+    
+    struct ListNode dummy_node;
+    struct ListNode* runner;
+    runner = &dummy_node;
+    struct ListNode* cur, *temp;
+    cur = head;
+    while(cur && cur->next)
+    {
+        temp = cur->next->next;
+        runner->next = cur->next;
+        runner = runner->next;
+        runner->next = cur;
+        runner = runner->next;
+        cur =temp ;
+        
+    }
+    if(cur)
+        runner->next = cur;
+    else
+        runner->next = NULL;
+    
+    return (dummy_node.next);
+}
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
+    struct ListNode *slow, *temp = head;
+    slow = head;
+    while(n >0 && temp)
+    {
+        temp = temp->next;
+        n--;
+    }
+    if(n!= 0 )
+        return head;
+    else if(temp == NULL)
+        return (head->next);
+    else
+    {
+        while(temp->next)
+        {
+            slow = slow->next;
+            temp = temp->next;
+        }
+        slow->next = slow->next->next;
+    }
+    
+    return (head);
+}
