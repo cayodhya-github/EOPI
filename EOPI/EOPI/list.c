@@ -377,7 +377,7 @@ int listLength(struct ListNode* head)
     return (len);
 }
 
-
+/*
 struct ListNode * addNodeToList(int data)
 {
     struct ListNode *node = malloc(sizeof(struct ListNode ));
@@ -389,6 +389,7 @@ struct ListNode * addNodeToList(int data)
     return node;
     
 }
+
 
 struct ListNode *createList(int num_of_elements)
 {
@@ -409,7 +410,7 @@ struct ListNode *createList(int num_of_elements)
     }
     return temp;
 }
-
+*/
 struct ListNode* addTwoNumbersHelper(struct ListNode* l1, struct ListNode* l2, int *c)
 {
     int sum;
